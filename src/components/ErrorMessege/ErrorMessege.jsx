@@ -1,11 +1,11 @@
 
-const ErrorMessage =  (isEmpty) => {
-    return <p>Нічого не знайдено</p>
-    };
+// const ErrorMessage =  (isEmpty) => {
+//     return <p>Нічого не знайдено</p>
+//     };
 
 
 
-export default ErrorMessage;
+// export default ErrorMessage;
 
 
 

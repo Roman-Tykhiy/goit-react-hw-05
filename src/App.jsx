@@ -1,114 +1,114 @@
-import { useEffect, useState } from 'react';
-import s from "./App.module.css"
-import SearchBar from './components/SearchBar/SearchBar';
-import * as imagesService from './cervise/Apy';
-import ImageGallery from './components/ImageGalery/ImegeGalery';
-import Loader from './components/Loader/Loader';
-import ErrorMessage from './components/ErrorMessege/ErrorMessege';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
-import { ImageModal } from './components/ImageModal/ImageModal';
-import toast from 'react-hot-toast';
+// import { useEffect, useState } from 'react';
+// import s from "./App.module.css"
+// import SearchBar from './components/SearchBar/SearchBar';
+// import * as imagesService from './cervise/Apy';
+// import ImageGallery from './components/ImageGalery/ImegeGalery';
+// import Loader from './components/Loader/Loader';
+// import ErrorMessage from './components/ErrorMessege/ErrorMessege';
+// import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+// import { ImageModal } from './components/ImageModal/ImageModal';
+// import toast from 'react-hot-toast';
 
 
-function App() {
-  const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [error, setError] = useState(false);
-  const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalSrc, setModalSrc] = useState('');
-  const [modalAlt, setModalAlt] = useState('');
-  const [modalDescription, setModalDescription] = useState('');
+// function App() {
+//   const [images, setImages] = useState([]);
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [isEmpty, setIsEmpty] = useState(false);
+//   const [isVisible, setIsVisible] = useState(false);
+//   const [error, setError] = useState(false);
+//   const [query, setQuery] = useState('');
+//   const [page, setPage] = useState(1);
+//   const [modalIsOpen, setModalIsOpen] = useState(false);
+//   const [modalSrc, setModalSrc] = useState('');
+//   const [modalAlt, setModalAlt] = useState('');
+//   const [modalDescription, setModalDescription] = useState('');
 
-  useEffect(() => {
-    if (!query) return;
-    const getData = async () => {
-      try {
-        setIsLoading(true);
-        const { results, total_pages } = await imagesService.fetchImages(
-          query,
-          page
-        );
-        const mes = () => {
-          if (results.length) {
-            return toast.success("Знайдено картки")
-          }
-        }
-        mes();
-        if (!results.length) {
-          toast.error("Карток не знайдено")
-          return setIsEmpty(true);
+//   useEffect(() => {
+//     if (!query) return;
+//     const getData = async () => {
+//       try {
+//         setIsLoading(true);
+//         const { results, total_pages } = await imagesService.fetchImages(
+//           query,
+//           page
+//         );
+//         const mes = () => {
+//           if (results.length) {
+//             return toast.success("Знайдено картки")
+//           }
+//         }
+//         mes();
+//         if (!results.length) {
+//           toast.error("Карток не знайдено")
+//           return setIsEmpty(true);
           
-        }
+//         }
       
-        setImages(prev => [...prev, ...results]);
-        setIsVisible(page < total_pages)
-        } catch (error) {
-        setError(error.message);
-        toast("Сервер не відповідає")
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getData();
-  }, [query, page]);
+//         setImages(prev => [...prev, ...results]);
+//         setIsVisible(page < total_pages)
+//         } catch (error) {
+//         setError(error.message);
+//         toast("Сервер не відповідає")
+//       } finally {
+//         setIsLoading(false);
+//       }
+//     };
+//     getData();
+//   }, [query, page]);
 
-  const handleSetQuery = newQuery => {
-    setQuery(newQuery);
-    setImages([]);
-    setIsEmpty(false);
-    setIsVisible(false);
-    setPage(1);
-    setError(null);
-  };
-  const onLoadMore = () => {
-    setPage(perPage => perPage + 1);
-  };
-  const openModal = (src, alt, description) => {
-    setModalIsOpen(true);
-    setModalSrc(src);
-    setModalAlt(alt);
-    setModalDescription(description);
-  };
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setModalSrc('');
-    setModalAlt('');
-    setModalDescription('');
-  };
-  return (
-    <>
-      {!modalIsOpen && <SearchBar onSearch={handleSetQuery} />}
-      <div className={s.container}>
-        {!images.length && !isEmpty && !error && (
-            "Введіть дані для пошуку")}
-        {images.length > 0 && (
-          <ImageGallery images={images} openModal={openModal} />
-        )}
-        {isLoading && <Loader />}
-        {isVisible && (
-          <LoadMoreBtn onClick={onLoadMore} disabled={isLoading}>
-            {isLoading ? 'Завантаження...' : 'Завантажити більше'}
-          </LoadMoreBtn>
-        )}
-        {isEmpty && <ErrorMessage isEmpty={isEmpty} />}
-        {error &&   <p>Щось пішло не так</p>}
-        <ImageModal
-          modalIsOpen={modalIsOpen}
-          closeModal={closeModal}
-          src={modalSrc}
-          alt={modalAlt}
-          description={modalDescription}
-        />
-      </div>
-    </>
-  );
-}
+//   const handleSetQuery = newQuery => {
+//     setQuery(newQuery);
+//     setImages([]);
+//     setIsEmpty(false);
+//     setIsVisible(false);
+//     setPage(1);
+//     setError(null);
+//   };
+//   const onLoadMore = () => {
+//     setPage(perPage => perPage + 1);
+//   };
+//   const openModal = (src, alt, description) => {
+//     setModalIsOpen(true);
+//     setModalSrc(src);
+//     setModalAlt(alt);
+//     setModalDescription(description);
+//   };
+//   const closeModal = () => {
+//     setModalIsOpen(false);
+//     setModalSrc('');
+//     setModalAlt('');
+//     setModalDescription('');
+//   };
+//   return (
+//     <>
+//       {!modalIsOpen && <SearchBar onSearch={handleSetQuery} />}
+//       <div className={s.container}>
+//         {!images.length && !isEmpty && !error && (
+//             "Введіть дані для пошуку")}
+//         {images.length > 0 && (
+//           <ImageGallery images={images} openModal={openModal} />
+//         )}
+//         {isLoading && <Loader />}
+//         {isVisible && (
+//           <LoadMoreBtn onClick={onLoadMore} disabled={isLoading}>
+//             {isLoading ? 'Завантаження...' : 'Завантажити більше'}
+//           </LoadMoreBtn>
+//         )}
+//         {isEmpty && <ErrorMessage isEmpty={isEmpty} />}
+//         {error &&   <p>Щось пішло не так</p>}
+//         <ImageModal
+//           modalIsOpen={modalIsOpen}
+//           closeModal={closeModal}
+//           src={modalSrc}
+//           alt={modalAlt}
+//           description={modalDescription}
+//         />
+//       </div>
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 

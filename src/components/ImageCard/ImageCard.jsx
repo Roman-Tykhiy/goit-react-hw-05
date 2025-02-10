@@ -1,26 +1,26 @@
-import s from "./ImageCard.module.css"
-const ImageCard = ({
-  image: {
-    urls: { small, regular },
-    alt_description,
-    likes,
-    description,
-  },
-  openModal,
-}) => {
-  return (
-    <div>
-          <img
-              width="440"
-              height="320"
-        src={small}
-        alt={alt_description}
-        onClick={() => openModal(regular, alt_description, description)}
-      />
-    </div>
-  );
-};
-export default ImageCard;
+// import s from "./ImageCard.module.css"
+// const ImageCard = ({
+//   image: {
+//     urls: { small, regular },
+//     alt_description,
+//     likes,
+//     description,
+//   },
+//   openModal,
+// }) => {
+//   return (
+//     <div>
+//           <img
+//               width="440"
+//               height="320"
+//         src={small}
+//         alt={alt_description}
+//         onClick={() => openModal(regular, alt_description, description)}
+//       />
+//     </div>
+//   );
+// };
+// export default ImageCard;
 
 
 
