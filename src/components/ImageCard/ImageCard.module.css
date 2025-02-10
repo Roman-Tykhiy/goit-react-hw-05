@@ -1,0 +1,34 @@
+.container {
+    padding: 12px 12px;
+
+}
+.form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 260px;
+}
+.field {
+        width: 240px;
+        height: 24px;
+        border: 2px solid rgba(54, 53, 51, 0.932);
+        border-radius: 10px;
+        margin-bottom: 12px;
+}
+
+.text {
+    margin: 8px 0;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.addbtn {
+        width: 160px;
+        border: 2px solid rgba(54, 53, 51, 0.932);
+        border-radius: 20px;
+        color:gray;
+        background-color: azure;
+}
+.messege {
+    color: red;
+}

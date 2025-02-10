@@ -1,0 +1,14 @@
+.loadMore {
+    width: 380px;
+        height: 40px;
+        background-color: rgb(241, 100, 112);
+        color: rgb(34, 25, 12);
+        border: 2px solid rgb(66, 66, 66);
+        border-radius: 24px;
+        cursor: pointer;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.loadMore:hover {
+    background-color: rgb(134, 223, 171);
+        border: 2px solid rgb(63, 62, 62);
+}
