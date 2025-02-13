@@ -1,0 +1,14 @@
+.movieDetailsNavigation {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        padding-left: 0;
+        background-color: rgb(218, 208, 198);
+        list-style-type: none;
+}
+.link {
+        font-size: 32px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgb(44, 105, 124);
+        text-decoration: none;
+}

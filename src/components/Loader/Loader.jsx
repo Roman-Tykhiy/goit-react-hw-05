@@ -1,11 +1,11 @@
-// import { FidgetSpinner } from 'react-loader-spinner';
+import { FidgetSpinner } from 'react-loader-spinner';
 
-// const Loader = () => {
-//   return <FidgetSpinner visible={true}
-//   height="80"
-//   width="80"
-//   ariaLabel="fidget-spinner-loading"
-//   wrapperStyle={{}}
-//   wrapperClass="fidget-spinner-wrapper" />;
-// };
-// export default Loader;
+const Loader = (isLoading) => {
+  return <FidgetSpinner visible={isLoading}
+  height="80"
+  width="80"
+  ariaLabel="fidget-spinner-loading"
+  wrapperStyle={{}}
+  wrapperClass="fidget-spinner-wrapper" />;
+};
+export default Loader;

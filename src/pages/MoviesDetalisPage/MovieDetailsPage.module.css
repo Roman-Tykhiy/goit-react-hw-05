@@ -1,0 +1,48 @@
+.container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        max-width: 1440px;
+        min-width: 320px;
+        background-color: rgb(218, 208, 198);
+}
+.Title {
+    margin: 0 auto;
+    color: rgb(59, 55, 50);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.infoItem {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        max-width: 1440px;
+        min-width: 320px;
+        padding-left: 0;
+        list-style-type: none;
+}
+.infoTitle {
+        font-size: large;
+        color: rgb(39, 36, 33);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.valueItem {
+        color: rgb(59, 55, 50);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.movieOverview {
+   padding: 0 32px;
+   max-width: 760px;
+   min-width: 320px;
+}
+.goBackBtn {
+font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(44, 105, 124);
+    text-decoration: none;
+}
+.outletCont {
+    display: flex;
+    align-items: center;
+}

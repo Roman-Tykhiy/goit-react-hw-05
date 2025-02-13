@@ -1,0 +1,25 @@
+.navigation
+ {
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 1440px;
+    background-color: rgb(64, 49, 90);
+}
+.navList {
+        display: flex;
+        justify-content: center;
+        max-width: 1440px;
+        min-width: 320px;
+        gap: 82px;
+        background-color: rgb(166, 96, 231);
+        list-style-type: none;
+}
+.navItem {
+     font-size: 32px;
+}
+.link {
+color: antiquewhite;
+text-decoration: none;
+}
+    

@@ -1,33 +1,44 @@
+import { useState } from 'react';
+import s from "./SearchBar.module.css"
+import toast from 'react-hot-toast';
+const SearchBar = ({ onSubmit, query }) => {
+  const [typingQuery, setTypingQuery] = useState(query ?? '');
 
-// import toast from 'react-hot-toast';
-// import s from "./SearchBar.module.css"
-// const SearchBar = ({ onSearch }) => {
-//   const handleSubmit = evt => {
-//     evt.preventDefault();
-//     const form = evt.target;
-//     const search = form.elements.search.value;
-//     if (search.trim() === '') {
-//       toast.error(`Введіть текст для пошуку зображень`);
-//       return;
-//     }
-//     onSearch(search.trim());
-//     form.reset();
-//   };
+  const handleChange = e => {
+    setTypingQuery(e.target.value) 
+  };
+  const resetTypingQuery = () => {
+    setTypingQuery('');
+    
+  };
 
-//   return (
-//     <header className={s.header}>
-//       <form className={s.form} onSubmit={handleSubmit}>
-//         <button className={s.search} type="submit">Почати пошук</button>
-//         <input
-//           className={s.input}
-//           type="text"
-//           name="search"
-//           autoComplete="off"
-//           autoFocus
-//           placeholder="Введіть дані для пошуку"
-//         />
-//       </form>
-//     </header>
-//   );
-// };
-// export default SearchBar;
+  return (
+    <form className={s.searchBar} onSubmit={onSubmit}>
+      <div className={s.searchBox} tabIndex={1}>
+        <div className={s.searchInputGroup}>
+          <input
+            className={s.searchInput}
+            type="text"
+            name="search"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search movies"
+            onChange={handleChange}
+            value={typingQuery}
+          />
+          {typingQuery !== '' && (
+            <button
+              type="button"
+              className={s.resetBtn}
+              onClick={resetTypingQuery}
+            >Resset
+            </button>
+          )}
+        </div>
+        <button type="submit" className={s.searchBtn}>Search
+        </button>
+      </div>
+    </form>
+  );
+};
+export default SearchBar;
