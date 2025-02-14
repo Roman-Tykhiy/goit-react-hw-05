@@ -3,12 +3,13 @@ import { Routes, Route} from "react-router-dom"
 import s from "./App.module.css"
 import Navigation from './components/Navigation/Navigation';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import toast from "react-hot-toast";
 
 
 const HomePage = lazy(() => import('./pages/HomePages/HomePage'));
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() =>
-  import('./pages/MoviesDetalisPage/MoviesDetalisPage')
+  import('./pages/MovieDetailsPage/MoviesDetalisPage')
 );
 const MovieCast = lazy(() => import('./components/MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews'));
@@ -16,7 +17,8 @@ const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews')
 function App() {
   return (
     <div className={s.container}>
-      <Navigation/>
+      <Navigation />
+      <Suspense fallback={<p>Завантаження...</p>}>
       <Routes >
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
@@ -26,7 +28,7 @@ function App() {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      
+      </Suspense>
     </div>
   );
 }
