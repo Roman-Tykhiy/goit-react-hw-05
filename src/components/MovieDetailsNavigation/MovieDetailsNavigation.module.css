@@ -12,3 +12,6 @@
         color: rgb(44, 105, 124);
         text-decoration: none;
 }
+.active {
+        color: red;
+}

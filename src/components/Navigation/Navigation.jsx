@@ -10,7 +10,7 @@ const Navigation = () => {
     <nav className={s.navigation}>
       <ul className={s.navList}>
         <li className={s.navItem}>
-          <NavLink className={buildLinkClass} to="/">
+          <NavLink className={({isActive}) => clsx(s.link, isActive && s.active)} to="/">
            Home
           </NavLink>
         </li>
